@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `myrecords`
 --
 create database if NOT EXISTS mydb;
-
+use mydb;
 CREATE TABLE `myrecords` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
