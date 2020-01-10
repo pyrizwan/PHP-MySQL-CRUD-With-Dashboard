@@ -94,7 +94,7 @@
                         <tbody>
                            <?php
                               $count=1;
-                              $sel_query="Select * from myrecords order by id asc limit $offset,$per_page";
+                              $sel_query="Select * from myrecords order by id desc limit $offset,$per_page";
                               $result = mysqli_query($db,$sel_query);
                               while($row = mysqli_fetch_assoc($result)) { ?>
                            <tr>
