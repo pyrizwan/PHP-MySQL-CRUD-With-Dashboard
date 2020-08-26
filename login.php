@@ -42,8 +42,8 @@ if (isset($_POST['login_user'])) {
 	
 	<form method="post" action="login.php">
 
-		<?php include('errors.php'); ?>
-
+	<?php foreach ($errors as $result) echo $result, '<br>'; ?>
+		
 		<div class="input-group">
 			<label>Username</label>
 			<input type="text" name="username" >
