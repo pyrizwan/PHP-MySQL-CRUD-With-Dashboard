@@ -20,7 +20,7 @@ if (isset($_POST['login_user'])) {
 		if (mysqli_num_rows($results) == 1) {
 			$_SESSION['username'] = $username;
 			$_SESSION['success'] = "You are now logged in";
-			header('location: index.php');
+			header('location: home.php');
 		}else {
 			array_push($errors, "Wrong username/password combination");
 		}
@@ -29,37 +29,60 @@ if (isset($_POST['login_user'])) {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Registration system PHP and MySQL</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style type="text/css">
+        </style>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+   
 </head>
 <body>
+      
 
-	<div class="header">
-		<h2>Login</h2>
-	</div>
+    <br />
 	
-	<form method="post" action="login.php">
+	
+    
+    <div class="container" style="margin-top:50px">
+
+            <div class="col-md-4">
+
+                </div>
+<div class="col-md-4">
+        
+    <div class="panel panel-info">
+  <div class="panel-heading"><h3 class="panel-title"><strong>Client Sign In </strong></h3></div>
+  <div class="panel-body">
+  <form method="post" action="">
 
 		<?php include('errors.php'); ?>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Username</label>
+    <input type="text" name="username" class="form-control"  placeholder="Enter username">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password </label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <button type="submit" name="login_user" class="btn btn-sm btn-primary">Sign in</button>
+</form>
+  </div>
+</div>
+</div>
+<div class="col-md-4">
 
-		<div class="input-group">
-			<label>Username</label>
-			<input type="text" name="username" >
-		</div>
-		<div class="input-group">
-			<label>Password</label>
-			<input type="password" name="password">
-		</div>
-		<div class="input-group">
-			<button type="submit" class="btn" name="login_user">Login</button>
-		</div>
-		<p>
-			Not yet a member? <a href="register.php">Sign up</a>
-		</p>
-	</form>
+</div>
+<br>
 
-
+</div>
+	<script type="text/javascript">
+		</script>
 </body>
 </html>
