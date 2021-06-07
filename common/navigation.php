@@ -33,7 +33,7 @@
                 <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li>
                 <li class="divider"></li>
-                <li><a href="settings.php">Settingsk</a></li>
+                <li><a href="settings.php">Settings</a></li>
                 <li class="divider"></li>
                 <li><a href="index.php?logout=1">Logout</a></li>
               </ul>
