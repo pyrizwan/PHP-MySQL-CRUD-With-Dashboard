@@ -14,7 +14,34 @@
     mysqli_query($db, "delete from myrecords where id=".$_GET['delete']);
     header('location: index.php'); 
    }
-   ?>
+
+
+if(isset($_GET['export']))
+{
+      $sql="Select * from mytable where media_source='$username' and date between '$sdate' and '$edate' order by id desc ";
+      $result = $db->query($sql);
+      if (!$result) die('Couldn\'t fetch records');
+      $num_fields = mysqli_num_fields($result);
+      $headers = array();
+     while ($fieldinfo = mysqli_fetch_field($result)) {
+    $headers[] = $fieldinfo->name;
+}
+      $fp = fopen('php://output', 'w');
+      if ($fp && $result) {
+      header('Content-Type: text/csv');
+      header('Content-Disposition: attachment; filename="export_data.csv"');
+      header('Pragma: no-cache');
+      header('Expires: 0');
+      fputcsv($fp, $headers);
+      while ($row = $result->fetch_array(MYSQLI_NUM)) {
+         fputcsv($fp, array_values($row));
+      }
+      die;
+      }
+}
+
+?>
+
 <?php 
    $per_page = 25;
    $cur_page=isset($_GET['page'])?$_GET['page']:'1';
@@ -77,7 +104,7 @@
                            <h3 class="panel-title">Exisiting <?=$total_records;?> Records</h3>
                         </div>
                         <div class="col col-xs-6 text-right">
-                           <button type="button" class="btn btn-sm btn-success btn-create">Action Button</button>
+                            <a  href="?export=1&sdate=<?=$sdate;?>&edate=<?=$edate;?>" class="btn btn-sm btn-success btn-create">Download</a>
                         </div>
                      </div>
                   </div>
