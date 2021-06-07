@@ -1,6 +1,10 @@
 <?php include('config/session.php') ?>
 <?php include('config/config.php') ?>
 <?php
+   
+   $sdate=isset($_GET['sdate'])?$_GET['sdate']:date('Y-m-01');
+		$edate=isset($_GET['edate'])?$_GET['edate']:date('Y-m-d');
+
    if (isset($_POST['add_new'])) {
    	// receive all input values from the form
    	$name = mysqli_real_escape_string($db, $_POST['name']);
